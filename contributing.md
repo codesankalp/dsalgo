@@ -21,6 +21,23 @@ Pull requests are the best way to propose changes to the codebase (we use [Githu
 6. Issue that pull request!
 7. All pull requests must be documented well
 
+## Commit Guidelines
+
+1. Each commit should link short title and a description (can be short)
+2. Each commit message will be like [type] commit_message issueno if solved any
+3. Each commit must solve one issue.
+
+## Pull Request Process
+
+1. Ensure any install or build dependencies are removed before the end of the layer when doing a 
+   build.
+2. Update the README.md with details of changes to the interface, this includes new environment 
+   variables, exposed ports, useful file locations and container parameters.
+3. Increase the version numbers in any examples files and the README.md to the new version that this
+   Pull Request would represent. The versioning scheme we use is [SemVer](http://semver.org/).
+4. You may merge the Pull Request in once you have the sign-off of two other developers, or if you 
+   do not have permission to do that, you may request the second reviewer to merge it for you.
+
 ## Any contributions you make will be under the MIT Software License
 In short, when you submit code changes, your submissions's will be understood the same [MIT License](http://choosealicense.com/licenses/mit/) that covers the project. Feel free to contact the maintainers if that's a concern.
 
