@@ -378,4 +378,6 @@ class LinkedList:
 		# Loop ends
 		
 		return head
-
+		
+	def __repr__(self):
+		return "LinkedList({})".format((self.to_list()))
