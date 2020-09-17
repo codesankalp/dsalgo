@@ -66,7 +66,8 @@ def bubble(array, reverse=False):
 def merge(array,reverse=False):
 
 
-    """1.Divide:
+    """
+    1.Divide:
     If q is the half-way point between p and r, then we can split the subarray A[p..r] 
     into two arrays A[p..q] and A[q+1, r].
     2.Conquer:
