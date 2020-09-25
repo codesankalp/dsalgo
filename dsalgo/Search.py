@@ -31,7 +31,7 @@ class Search:
 			return binary_search(self.array, 0, len(self.array)-1, self.element)
 
 		else:
-			stderr.write("Error: unsupported sorting algorithm passed!")
+			stderr.write("Error: unsupported searching algorithm passed!")
 
 
 def linear_search(array, element):
