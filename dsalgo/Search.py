@@ -31,7 +31,7 @@ class Search:
 			return binary_search(self.array, 0, len(self.array)-1, self.element)
 
 		else:
-			stderr.write("Error: unsupported searching algorithm passed!")
+			sys.stderr.write("Error: unsupported searching algorithm passed!")
 
 
 def linear_search(array, element):
@@ -84,4 +84,3 @@ def binary_search(array, l, r, element):
 
     else:  
         return -1
-
