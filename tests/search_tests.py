@@ -1,18 +1,18 @@
+import unittest
 from dsalgo.Search import Search
-array = [2, 4, 6, 8, 10]
+array = [2, 4, 6, 8, 10, 1]
 
-# Should output 4
-result = Search(array, 'linear', 10)
-print(result)
+class TestSearch(unittest.TestCase):
 
-# Should output -1
-result = Search(array, 'linear', 12)
-print(result)
+    def test_linear(self):
+        self.assertEqual(Search(array, 'linear', 10), 4)
+        self.assertEqual(Search(array, 'linear', 12), -1)
 
-# Should output 4
-result = Search(array, 'binary', 10)
-print(result)
+    def test_binary(self):
+        self.assertEqual(Search(array, 'binary', 10), 4)
+        self.assertEqual(Search(array, 'binary', 12), -1)
 
-# Should output -1
-result = Search(array, 'binary', 12)
-print(result)
+  
+
+if __name__ == '__main__':
+    unittest.main()
