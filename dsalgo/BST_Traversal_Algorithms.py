@@ -1,8 +1,8 @@
 “””  Binary Search Tree : tree where parent has two child nodes and left child node value is less than Root/parent and right child node value is greater than parent.
 
 Binary Search Tree Traversal Algorithms
-    1. Pre order Traversal
-    2. Post Order Traversal
+    1. Preorder Traversal
+    2. Postorder Traversal
     3. Inorder Traversal
 
 self.right : right child node of the parent node
