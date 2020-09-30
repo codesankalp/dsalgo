@@ -1,70 +1,104 @@
-# Contributing to Repo_Name
-We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:
+<div style="text-align:center"><img src="https://miro.medium.com/max/840/1*RJMxLdTHqVBSijKmOO5MAg.jpeg" /></div>
 
-- Reporting a bug
-- Discussing the current state of the code
-- Submitting a fix
-- Proposing new features
-- Becoming a maintainer
+# Contributing:
 
-## We Develop with Github
-We use github to host code, to track issues and feature requests, as well as accept pull requests.
+We love pull requests from everyone. By contributing to this repository, you
+agree to abide by the [Code of Conduct](CODE_OF_CONDUCT.md).
 
-## We Use [Github Flow](https://guides.github.com/introduction/flow/index.html), So All Code Changes Happen Through Pull Requests
-Pull requests are the best way to propose changes to the codebase (we use [Github Flow](https://guides.github.com/introduction/flow/index.html)). We actively welcome your pull requests:
+## Get Started: 
 
-1. Fork the repo and create your branch from `master`.
-2. If you've added code that should be tested, add sample tests.
-3. If you've changed APIs, update the documentation.
-4. Ensure the test suite passes.
-5. Make sure your code lints and follow proper styling (`PEP 8`).
-6. Issue that pull request!
-7. All pull requests must be documented well
+* First [fork][fork] the repository and then clone it using:
 
-## Commit Guidelines
+    git clone `git clone https://github.com/your_username/dsalgo.git`
 
-1. Each commit should link short title and a description (can be short)
-2. Each commit message will be like [type] commit_message issueno if solved any
-3. Each commit must solve one issue.
+* Ask for issues to be assigned. If you want, you can open new [issues](#issues) as well
 
-## Pull Request Process
+* After that create a branch for your changes. For example:  
+  * add_# if you will add new algorithms or data structures.  
+  * fix_# if you will fix a bug on a certain algorithm or data structure.  
+  * test_# if you wrote a test/s.  
+  * doc_# if you added to or edited documentation.
 
-1. Ensure any install or build dependencies are removed before the end of the layer when doing a 
-   build.
-2. Update the README.md with details of changes to the interface, this includes new environment 
-   variables, exposed ports, useful file locations and container parameters.
-3. Increase the version numbers in any examples files and the README.md to the new version that this
-   Pull Request would represent. The versioning scheme we use is [SemVer](http://semver.org/).
-4. You may merge the Pull Request in once you have the sign-off of two other developers, or if you 
-   do not have permission to do that, you may request the second reviewer to merge it for you.
+You may contribute by:
 
-## Any contributions you make will be under the MIT Software License
-In short, when you submit code changes, your submissions's will be understood the same [MIT License](http://choosealicense.com/licenses/mit/) that covers the project. Feel free to contact the maintainers if that's a concern.
+- Implementing new algorithms in the repo. Be sure to keep it under
+right section [dsalgo/][dsalgo/] (e.g. dsalgo/linked_list,dsalgo/sort, etc). Make a new section for it if
+it doesn't fall under any section. Make sure that your implementation works, Also make sure you writes test for same in [dsalgo/tests][tests] 
 
-## Suggest New Features
-Open Source is the place to collaborate and make a product better and better. So If you want any new features or want to change a feature then you can contact the maintainers of the project or you can create the issue suggesting your features.
+- Optimizing or improving the existing algorithms.
+- Adding a different solution for the problem.
+- Finding and fixing bugs.
+- Adding examples to explain the algorithms better.
+- Adding test cases (Note: use python [unittest][unittest] testing framework for wrritng tests).
+- Improving documentation.
+  
 
-## Report bugs using Github's [issues](https://linktotheissuespage)
-We use GitHub issues to track public bugs. Report a bug by [opening a new issue](); it's that easy!
+## How to write good commit messages:
 
-## Write bug reports with detail, background, and sample code
-Bug reports are very helpful in tracking and solving a bug.
+**Use following commit style**:
+```
+[module/file/feature] Short description #<issue-no.>
 
-**Great Bug Reports** tend to have:
+Long description here
+Fixes #<issue-no.>
+```
 
-- A quick summary and/or background
-- Steps to reproduce
-  - Be specific!
-- What you expected would happen
-- What actually happens
-- Notes (possibly including why you think this might be happening, or stuff you tried that didn't work)
-- If possible include screenshots and comments.
+* **Specify the type of commit**:
+*  **feature:** The new feature you're adding to a particular application
+* **fix:** A bug fix
+*  **style:** Feature and updates related to styling
+*  **refactor:** Refactoring a specific section of the codebase
+*  **test:** Everything related to testing
+*  **docs:** Everything related to documentation
+*  **chores:** Regular code maintenance/typos or any other similar error
+*  **qa:** Improvement in code readability/ styling etc.
+* Separate the subject from the body with a blank line
+* Your commit message should not contain any whitespace errors
+* Remove unnecessary punctuation marks
+* Do not end the subject line with a period
+* Capitalize the subject line and each paragraph
+* Use the imperative mood in the subject line
+* Use the body to explain what changes you have made and why you made * them.
+* Do not assume the reviewer understands what the original problem was,ensure you add it.
+* Do not think your code is self-explanatory
 
-*People `loves` thorough bug reports.*
+**Example of a good commit**:
 
-## Use a Consistent Coding Style
-- `PEP 8` is the default coding style for this project.
-- Always test or lint the code before making pull requests.
+```
+[docs] Added contributing file #36
 
-## License
-By contributing, you agree that your contributions will be licensed under its MIT License.
+Added contibution file to help new contributors
+Fixes #36
+```
+
+
+## Pull Requests:
+Push to your fork and [submit a pull request][pr].
+
+We will review and may suggest some changes or improvements or alternatives.
+Some things that will increase the chance that your pull request is accepted:
+
+* All algorithms should be written in **Python 3**.
+(There are a few algorithms still in _Python 2_ syntax. You can start by converting
+ to _Python 3_.)
+
+* Write clean and understandable code.
+* Properly comment the code and briefly explain what the algorithm is doing in the [docstrings][docstr].https://www.conventionalcommits.org/en/v1.0.0/
+* You may also explain the output using a minimal example.
+* Try to also include a couple of test cases for the algorithm.
+* Write a [good commit message][commit].
+
+
+## Issues:
+Submit a [new issue][newissue] if there is an algorithm to add, or if a bug was found in an existing algorithm. Before submitting a new issue please review the [existing issues][issues] to avoid creating duplicates. Also, consider resolving current issues or contributing to the discussion on an issue.
+
+
+[fork]: https://help.github.com/articles/fork-a-repo/
+[docstr]: https://www.python.org/dev/peps/pep-0257/#multi-line-docstrings
+[commit]: https://www.conventionalcommits.org/en/v1.0.0/
+[pr]: https://github.com/codesankalp/dsalgo/compare/
+[tests]:https://github.com/codesankalp/dsalgo/tree/master/tests
+[dsalgo/]:https://github.com/codesankalp/dsalgo/tree/master/dsalgo
+[unittest]:https://docs.python.org/2/library/unittest.html
+[newissue]: https://github.com/codesankalp/dsalgo/issues/new
+[issues]: https://github.com/codesankalp/dsalgo/issues/
