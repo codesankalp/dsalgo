@@ -28,7 +28,7 @@ class LinkedList:
 	def print(self):
 		"""print nodes of the linked list"""
 		current_node = self.head
-		
+
 		while current_node is not None:
 			print(current_node.value)
 			current_node = current_node.next
@@ -112,11 +112,11 @@ class LinkedList:
 	def insert(self, value, pos):
 		""" Insert value at pos position in the list. If pos is larger than the
 			length of the list, append to the end of the list. """
-		# If the list is empty 
+		# If the list is empty
 		if self.head is None:
 			self.head = Node(value)
 			return
-			
+
 		if pos == 0:
 			self.prepend(value)
 			return
@@ -157,19 +157,19 @@ class LinkedList:
 		   obj: Reveresed Linked List
 		"""
 		new_list = LinkedList()
-		
+
 		prev_node = None
 
 		current_node = self.head
-		
+
 		while current_node is not None:
 			new_node = Node(current_node.value)
-			new_node.next = prev_node 
+			new_node.next = prev_node
 			prev_node = new_node
 			current_node = current_node.next
 
 		new_list.head = prev_node
-		
+
 		return new_list
 
 
@@ -185,20 +185,20 @@ class LinkedList:
 
 		if self.head is None:
 			return False
-		
+
 		slow = self.head
 		fast = self.head
-		
+
 		while fast and fast.next:
 			# slow pointer moves one node
 			slow = slow.next
 			# fast pointer moves two nodes
 			fast = fast.next.next
-			
+
 			if slow == fast:
 				return True
-		
-		# If we get to a node where fast doesn't have a next node or doesn't exist itself, 
+
+		# If we get to a node where fast doesn't have a next node or doesn't exist itself,
 		# the list has an end and isn't circular
 		return False
 
@@ -214,7 +214,7 @@ class LinkedList:
 		# If both the indices are same
 		if position_one == position_two:
 			return head
-		
+
 		# Helper references
 		one_previous = None
 		one_current = None
@@ -223,17 +223,17 @@ class LinkedList:
 		two_current = None
 
 		current_index = 0
-		current_node = self.head 
+		current_node = self.head
 		new_head = None
 
 		# LOOP - find out previous and current node at both the positions (indices)
 		while current_node is not None:
-			
-			# Position_one cannot be equal to position_two, 
+
+			# Position_one cannot be equal to position_two,
 			# so either one of them might be equal to the current_index
 			if current_index == position_one:
 				one_current = current_node
-			
+
 			elif current_index == position_two:
 				two_current = current_node
 				break
@@ -241,25 +241,25 @@ class LinkedList:
 			# If neither of the position_one or position_two are equal to the current_index
 			if one_current is None:
 				one_previous = current_node
-			
+
 			two_previous = current_node
-			
+
 			# increment both the current_index and current_node
-			current_node = current_node.next         
+			current_node = current_node.next
 			current_index += 1
-			
+
 
 		# Loop ends
-		
-		
+
+
 		'''SWAPPING LOGIC'''
-		# We have identified the two nodes: one_current & two_current to be swapped, 
+		# We have identified the two nodes: one_current & two_current to be swapped,
 		# Make use of a temporary reference to swap the references
 		two_previous.next = one_current
 		temp = one_current.next
 		one_current.next = two_current.next
 		two_current.next = temp
-		
+
 		# if the node at first index is head of the original linked list
 		if one_previous is None:
 			new_head = two_current
@@ -267,7 +267,7 @@ class LinkedList:
 			one_previous.next = two_current
 			new_head = self.head
 		# Swapping logic ends
-		
+
 		return new_head
 
 	def sort_append(self, value):
@@ -280,21 +280,21 @@ class LinkedList:
 		if self.head is None:
 			self.head = Node(value)
 			return
-		
+
 		if value < self.head.value:
 			node = Node(value)
 			node.next = self.head
 			self.head = node
 			return
-		
+
 		node = self.head
 		while node.next is not None and value >= node.next.value:
 			node = node.next
-			
+
 		new_node = Node(value)
 		new_node.next = node.next
 		node.next = new_node
-		
+
 		return None
 
 	def sort(self):
@@ -313,13 +313,13 @@ class LinkedList:
 		linked_list = LinkedList()
 		for value in array:
 			linked_list.sort_append(value)
-		
+
 		# Convert sorted linked list to a normal list/array
 		node = linked_list.head
 		while node:
 			sorted_array.append(node.value)
 			node = node.next
-		
+
 		return linked_list
 
 
@@ -331,9 +331,9 @@ class LinkedList:
 		return - return the updated head of the linked list
 		"""
 		'''
-		The Idea: 
+		The Idea:
 			Traverse the Linkedist. Make use of two references - `current` and `previous`.
-			- Skip `i-1` nodes. Keep incrementing the `current`. Mark the `i-1`^th node as `previous`. 
+			- Skip `i-1` nodes. Keep incrementing the `current`. Mark the `i-1`^th node as `previous`.
 			- Delete next `j` nodes. Keep incrementing the `current`.
 			- Connect the `previous.next` to the `current`
 		'''
@@ -341,11 +341,11 @@ class LinkedList:
 		head = self.head
 		if i == 0:
 			return None
-		
+
 		# Edge case - Delete 0 nodes
 		if j == 0:
 			return head
-		
+
 		# Invalid input
 		if head is None or j < 0 or i < 0:
 			return head
@@ -353,10 +353,10 @@ class LinkedList:
 		# Helper references
 		current = head
 		previous = None
-		
+
 		# Traverse - Loop untill there are Nodes available in the LinkedList
 		while current:
-			
+
 			'''skip (i - 1) nodes'''
 			for _ in range(i - 1):
 				if current is None:
@@ -364,18 +364,38 @@ class LinkedList:
 				current = current.next
 			previous = current
 			current = current.next
-			
+
 			'''delete next j nodes'''
 			for _ in range(j):
 				if current is None:
 					break
 				next_node = current.next
 				current = next_node
-			
-			'''Connect the `previous.next` to the `current`''' 
+
+			'''Connect the `previous.next` to the `current`'''
 			previous.next = current
-		
+
 		# Loop ends
-		
+
 		return head
 
+	def merge_linked_list(self, list2):
+
+		"""
+		:param: head - head of first linked list
+		:param: list2 - head of second linked list
+		return - return a new merged linked list
+		"""
+
+		sorted_array = []
+		array = self.to_list()
+
+		linked_list = LinkedList()
+		for value in array:
+			linked_list.sort_append(value)
+
+		array = list2.to_list()
+		for value in array:
+			linked_list.sort_append(value)
+
+		return linked_list
