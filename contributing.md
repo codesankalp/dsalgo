@@ -9,7 +9,7 @@ agree to abide by the [Code of Conduct](CODE_OF_CONDUCT.md).
 
 * First [fork][fork] the repository and then clone it using:
 
-    git clone https://github.com/codesankalp/dsalgo.git
+    git clone `git clone https://github.com/your_username/dsalgo.git`
 
 * After that create a branch for your changes. For example:  
   * add_# if you will add new algorithms or data structures.  
