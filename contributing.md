@@ -13,7 +13,7 @@ agree to abide by the [Code of Conduct](CODE_OF_CONDUCT.md).
 
 * After that create a branch for your changes. For example:  
   * add_# if you will add new algorithms or data structures.  
-  * fix_# if you will fixe a bug on a certain algorithm or data structure.  
+  * fix_# if you will fix a bug on a certain algorithm or data structure.  
   * test_# if you wrote a test/s.  
   * doc_# if you added to or edited documentation.
 
@@ -29,6 +29,27 @@ it doesn't fall under any section. Make sure that your implementation works, Als
 - Adding examples to explain the algorithms better.
 - Adding test cases (Note: use python [unittest][unittest] testing framework for wrritng tests).
 - Improving documentation.
+  
+
+## How to write good commit messages:
+* **Specify the type of commit**:
+*  **feat:** The new feature you're adding to a particular application
+* **fix:** A bug fix
+*  **style:** Feature and updates related to styling
+*  **refactor:** Refactoring a specific section of the codebase
+*  **test:** Everything related to testing
+*  **docs:** Everything related to documentation
+*  **chore:** Regular code maintenance.[ You can also use emojis to represent commit types]
+* Separate the subject from the body with a blank line
+* Your commit message should not contain any whitespace errors
+* Remove unnecessary punctuation marks
+* Do not end the subject line with a period
+* Capitalize the subject line and each paragraph
+* Use the imperative mood in the subject line
+* Use the body to explain what changes you have made and why you made * them.
+* Do not assume the reviewer understands what the original problem was,ensure you add it.
+* Do not think your code is self-explanatory
+  
 
 ## Pull Requests:
 Push to your fork and [submit a pull request][pr].
@@ -45,6 +66,8 @@ Some things that will increase the chance that your pull request is accepted:
 * You may also explain the output using a minimal example.
 * Try to also include a couple of test cases for the algorithm.
 * Write a [good commit message][commit].
+
+
 
 
 ## Issues:
