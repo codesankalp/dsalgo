@@ -31,8 +31,12 @@ class Sort:
             return bubble_recursion(self.array,self.reverse)
         if self.algo =='selection':
             return selection(self.array,self.reverse)
-        if self.algo =='quick':
-            return quick(self.array,self.reverse)
+        if self.algo =='radix':
+            return radixSort(self.array,self.reverse)
+        if self.algo =='bucket':
+            return bucket_sort(self.array,self.reverse)
+        if self.algo =='bitonic':
+            return bitonic_sort(self.array,self.reverse)
         else:
             sys.stderr.write("Error: unsupported sorting algorithm passed!")
         
@@ -200,4 +204,121 @@ def partition(array, start, end):
     array[start], array[high] = array[high], array[start]
 
     return high
+
+def countingSort(array, place):
+    size = len(array)
+    output = [0] * size
+    count = [0] * 10
+
+    # Calculate count of elements
+    for i in range(0, size):
+        index = array[i] // place
+        count[index % 10] += 1
+
+    # Calculate cummulative count
+    for i in range(1, 10):
+        count[i] += count[i - 1]
+
+    # Place the elements in sorted order
+    i = size - 1
+    while i >= 0:
+        index = array[i] // place
+        output[count[index % 10] - 1] = array[i]
+        count[index % 10] -= 1
+        i -= 1
+
+    for i in range(0, size):
+        array[i] = output[i]
+
+
+# Main function to implement radix sort
+def radixSort(array,reverse=False):
+    # Get maximum element
+    max_element = max(array)
+
+    # Apply counting sort to sort elements based on place value.
+    place = 1
+    while max_element // place > 0:
+        countingSort(array, place)
+        place *= 10
+    if reverse:
+         return array[::-1]
+    else:
+         return array
+
+def bucket_sort(arr,reverse=False):
+     ''' Bucket Sort
+        Complexity: O(n^2)
+        The complexity is dominated by nextSort
+     '''
+     # The number of buckets and make buckets
+     num_buckets = len(arr)
+     buckets = [[] for bucket in range(num_buckets)]
+     # Assign values into bucket_sort
+     for value in arr:
+         index = value * num_buckets // (max(arr) + 1)
+         buckets[index].append(value)
+    # Sort
+     sorted_list = []
+     for i in range(num_buckets):
+         sorted_list.extend(next_sort(buckets[i]))
+     if reverse:
+         return sorted_list[::-1]
+     else:    
+         return sorted_list
+
+def next_sort(arr):
+     # We will use insertion sort here.
+     for i in range(1, len(arr)):
+         j = i - 1
+         key = arr[i]
+         while arr[j] > key and j >= 0:
+             arr[j+1] = arr[j]
+             j = j - 1
+         arr[j + 1] = key
+     return arr
+def bitonic_sort(arr, reverse=False):
+     """
+     bitonic sort is sorting algorithm to use multiple process, but this code not containing parallel process
+     It can sort only array that sizes power of 2
+     It can sort array in both increasing order and decreasing order by giving argument true(increasing) and false(decreasing)
+     
+     Worst-case in parallel: O(log(n)^2)
+     Worst-case in non-parallel: O(nlog(n)^2)
+    
+     """
+     def compare(arr, reverse):
+         n = len(arr)//2
+         for i in range(n):
+             if reverse != (arr[i] > arr[i+n]):
+                 arr[i], arr[i+n] = arr[i+n], arr[i]
+         return arr
+
+     def bitonic_merge(arr, reverse):
+         n = len(arr)
+        
+         if n <= 1:
+             return arr
+        
+         arr = compare(arr, reverse)
+         left = bitonic_merge(arr[:n // 2], reverse)
+         right = bitonic_merge(arr[n // 2:], reverse)
+         return left + right
+    
+     #end of function(compare and bitionic_merge) definition
+     n = len(arr)
+     if n <= 1:
+         return arr
+     # checks if n is power of two
+     if not (n and (not(n & (n - 1))) ):
+         raise ValueError("the size of input should be power of two")
+    
+     left = bitonic_sort(arr[:n // 2], True)
+     right = bitonic_sort(arr[n // 2:], False)
+
+     arr = bitonic_merge(left + right, reverse)
+     return arr
+
+
+   
 

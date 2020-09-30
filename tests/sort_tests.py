@@ -42,6 +42,41 @@ class TestSort(unittest.TestCase):
          self.assertEqual(self.bySort,sortedArray)
          revsortedArray=Sort(self.testArray,"merge",True)
          self.assertEqual(self.revBySort,revsortedArray)
+     
+    def test_radix(self):
+      self.tarray=[2,7,5,1]
+      self.bsort=self.tarray.copy()
+      self.rsort=self.tarray.copy()
+      self.bsort.sort()
+      self.rsort.sort(reverse=True)
+      sortedArray=Sort(self.tarray,"radix")
+      self.assertEqual(self.bsort,sortedArray)
+      revsortedArray=Sort(self.tarray,"radix",True)
+      self.assertEqual(self.rsort,revsortedArray)
+
+    def test_bucket(self):
+            self.tarray=[2,7,5,1]
+            self.bsort=self.tarray.copy()
+            self.rsort=self.tarray.copy()
+            self.bsort.sort()
+            self.rsort.sort(reverse=True)
+            sortedArray=Sort(self.tarray,"bucket")
+            self.assertEqual(self.bsort,sortedArray)
+            revsortedArray=Sort(self.tarray,"bucket",True)
+            self.assertEqual(self.rsort,revsortedArray)
+
+    def test_bitonic(self):
+            self.tarray=[2,7,5,1]
+            self.bsort=self.tarray.copy()
+            self.rsort=self.tarray.copy()
+            self.bsort.sort()
+            self.rsort.sort(reverse=True)
+            sortedArray=Sort(self.tarray,"bitonic")
+            self.assertEqual(self.bsort,sortedArray)
+            revsortedArray=Sort(self.tarray,"bitonic",True)
+            self.assertEqual(self.rsort,revsortedArray)
+      
+          
 
 if __name__=='__main__':
     unittest.main()
