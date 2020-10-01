@@ -4,7 +4,7 @@ class Node(object):
         self.data = data
         self.next = next
         self.prev = prev
-
+	
 class doubly_linked_list(object):
     def __init__(self):
         self.head = None
@@ -27,6 +27,12 @@ class doubly_linked_list(object):
     def print_foward(self):
         for node in self.iter():
             print(node)
+
+    def print_backward(self):
+        current = self.tail
+        while current:
+            print(current.data)
+            current = current.prev
             
     def iter(self):
         # Iterate the list
@@ -36,7 +42,9 @@ class doubly_linked_list(object):
             current = current.next
             yield item_val
 
+
 # Use items = doubly_linked_list()
 # then items.append_item() append elements here any number of times
 # and use print_forward() to print the output as below :
-# items.print_foward()
+# items.print_foward() [#1]
+# items.print_backward() [adding a new function #2]
