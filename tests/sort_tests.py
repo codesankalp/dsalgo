@@ -26,21 +26,21 @@ class TestSort(unittest.TestCase):
          self.assertEqual(self.revBySort,revsortedArray)
 
     def test_bubble_recursion(self):
-         sortedArray=Sort(self.testArray,"merge")
+         sortedArray=Sort(self.testArray,"bubble_recursion")
          self.assertEqual(self.bySort,sortedArray)
-         revsortedArray=Sort(self.testArray,"merge",True)
+         revsortedArray=Sort(self.testArray,"bubble_recursion",True)
          self.assertEqual(self.revBySort,revsortedArray)
 
     def test_selection(self):
-         sortedArray=Sort(self.testArray,"merge")
+         sortedArray=Sort(self.testArray,"selection")
          self.assertEqual(self.bySort,sortedArray)
-         revsortedArray=Sort(self.testArray,"merge",True)
+         revsortedArray=Sort(self.testArray,"selection",True)
          self.assertEqual(self.revBySort,revsortedArray)
          
     def test_quick(self):
-         sortedArray=Sort(self.testArray,"merge")
+         sortedArray=Sort(self.testArray,"quick")
          self.assertEqual(self.bySort,sortedArray)
-         revsortedArray=Sort(self.testArray,"merge",True)
+         revsortedArray=Sort(self.testArray,"quick",True)
          self.assertEqual(self.revBySort,revsortedArray)
      
     def test_radix(self):
