@@ -40,7 +40,7 @@ class LinkedList:
 
 		node = self.head
 		while node:
-			out_list.append(node.value)
+			out_list.append([node.value,hex(id(node))])
 			node = node.next
 
 		return out_list
