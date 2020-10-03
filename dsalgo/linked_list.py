@@ -34,14 +34,19 @@ class LinkedList:
 			current_node = current_node.next
 
 
-	def to_list(self):
+	def to_list(self,address= False):
 		"""Returns python list of Linked List"""
 		out_list = []
-
-		node = self.head
-		while node:
-			out_list.append(node.value)
-			node = node.next
+		if address == True:
+			node = self.head
+			while node:
+				out_list.append([node.value, hex(id(node))])
+				node = node.next
+		else:
+			node = self.head
+			while node:
+				out_list.append(node.value)
+				node = node.next
 
 		return out_list
 
