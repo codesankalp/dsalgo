@@ -7,7 +7,7 @@ class Graph:
 	def addEdge(self, u ,v):
 		self.graph[u].append(v)
 
-	##perform dfs on the graph using queue
+	##Perform bfs on the graph using queue
 	def bfs(self, s):
 		##Visited list to keep track of elements we have already visited
 		visited = []
@@ -42,3 +42,4 @@ class Graph:
 				self.dfs(i, visited, ans)
 		##Return the ans list
 		return ans
+
