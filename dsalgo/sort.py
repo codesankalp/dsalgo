@@ -1,7 +1,7 @@
 import sys
 
-class Sort:
 
+class Sort:
     def __new__(self, array, algo, reverse=False):
         '''
         args:
@@ -23,152 +23,188 @@ class Sort:
         self.algo = algo
         self.reverse = reverse
 
-        if self.algo == 'bubble':
+        if self.algo == "bubble":
             return bubble(self.array, self.reverse)
-        if self.algo == 'merge':
+        if self.algo == "bubble_recursion":
+            return bubble_recursion(self.array, self.reverse)
+        if self.algo == "merge":
             return merge(self.array, self.reverse)
-        if self.algo =='bubble_recursion':
-            return bubble_recursion(self.array,self.reverse)
-        if self.algo =='selection':
-            return selection(self.array,self.reverse)
-        if self.algo =='quick':
-            return quick(self.array,self.reverse)
+        if self.algo == "quick":
+            return quick(self.array, self.reverse)
+        if self.algo == "selection":
+            return selection(self.array, self.reverse)
+        if self.algo == "shell":
+            return shell_sort(self.array, self.reverse)
         else:
             sys.stderr.write("Error: unsupported sorting algorithm passed!")
-        
+
+
 def bubble(array, reverse=False):
-    '''
+    """
     A bubble sort algorithm is an algorithm
     that repeatedly swaps adjacent elements.
-    The smallest values comes in front and 
+    The smallest values comes in front and
     large values goes at back, similar to that a
     lighter bubbles comes up, hence bubble sort
 
     args:
       :array:(list) -> list to be sorted
       :reverse:(boolean) -> default = False,
-                            can be True for sort 
+                            can be True for sort
                             in reverse order
-    '''
-    n=len(array)
+    """
+    n = len(array)
     for i in range(n):
-        swap=0
-        for j in range(0,n-i-1):
-            if array[j]>array[j+1]:
-                array[j],array[j+1]=array[j+1],array[j]
-                swap=1
-        if swap==0:
+        swap = 0
+        for j in range(0, n - i - 1):
+            if array[j] > array[j + 1]:
+                array[j], array[j + 1] = array[j + 1], array[j]
+                swap = 1
+        if swap == 0:
             break
-    if reverse==True:
+    if reverse:
         return array[::-1]
     return array
 
-def merge(array,reverse=False):
 
-
+def merge(array, reverse=False):
     """
     1.Divide:
-    If q is the half-way point between p and r, then we can split the subarray A[p..r] 
+    If q is the half-way point between p and r,
+    then we can split the subarray A[p..r]
     into two arrays A[p..q] and A[q+1, r].
     2.Conquer:
-    In the conquer step, we try to sort both the subarrays A[p..q] and A[q+1, r]. 
-     If we haven't yet reached the base case,
-     we again divide both these subarrays and try to sort them.
+    In the conquer step, we try to sort both
+    the subarrays A[p..q] and A[q+1, r].
+    If we haven't yet reached the base case,
+    we again divide both these subarrays
+    and try to sort them.
     3.Combine:
-    When the conquer step reaches the base step and we get two sorted subarrays A[p..q] and A[q+1, r] for array A[p..r],
-    we combine the results by creating a sorted array A[p..r] from two sorted subarrays A[p..q] and A[q+1, r].
+    When the conquer step reaches the base step and
+    we get two sorted subarrays A[p..q] and A[q+1, r] for array A[p..r],
+    we combine the results by creating a sorted array A[p..r]
+    from two sorted subarrays A[p..q] and A[q+1, r].
+     args:
+      :array:(list) -> list to be sorted
+      :reverse:(boolean) -> default = False,
+                            can be True for sort
+                            in reverse order
     """
-    
-    if len(array) >1: 
-        mid = len(array)//2  # mid
-        left = array[:mid]   # Dividing the array elements  
-        right = array[mid:]  # into 2 halves 
-  
-        merge(left)        # Sorting the first half 
-        merge(right)       # Sorting the second half 
+
+    if len(array) > 1:
+        mid = len(array) // 2  # mid
+        left_half = array[:mid]  # Dividing the array elements
+        right_half = array[mid:]  # into 2 halves
+
+        merge(left_half)  # Sorting the first half
+        merge(right_half)  # Sorting the second half
         i = j = k = 0
-          
-        # Copy data to left[] and right[] 
-        while i < len(left) and j < len(right): 
-            if left[i] < right[j]: 
-                array[k] = left[i] 
-                i+= 1
-            else: 
-                array[k] = right[j] 
-                j+= 1
-            k+= 1
-          
-        # Checking if any element was left 
-        while i < len(left): 
-            array[k] = left[i] 
-            i+= 1
-            k+= 1
-          
-        while j < len(right): 
-            array[k] = right[j] 
-            j+= 1
-            k+= 1
-    if reverse==True :
-     return array[::-1]
+
+        # Copy data to left[] and right[]
+        while i < len(left_half) and j < len(right_half):
+            if left_half[i] < right_half[j]:
+                array[k] = left_half[i]
+                i += 1
+            else:
+                array[k] = right_half[j]
+                j += 1
+            k += 1
+
+        # Checking if any element was left
+        while i < len(left_half):
+            array[k] = left_half[i]
+            i += 1
+            k += 1
+
+        while j < len(right_half):
+            array[k] = right_half[j]
+            j += 1
+            k += 1
+    if reverse:
+        return array[::-1]
     return array
 
-def bubble_recursion(array,reverse=False): 
-    for i, num in enumerate(array): 
-        try: 
-            if array[i+1] < num: 
-                array[i] = array[i+1] 
-                array[i+1] = num 
-                bubble_recursion(array) 
-        except IndexError: 
+
+def bubble_recursion(array, reverse=False):
+    for i, num in enumerate(array):
+        try:
+            if array[i + 1] < num:
+                array[i] = array[i + 1]
+                array[i + 1] = num
+                bubble_recursion(array)
+        except IndexError:
+            #This exception will be produced when
+            #i=len(array)-1 which signifies we finished the
+            #process of bubble recursion.
             pass
-    if reverse==True:
-     return array[::-1]
+    if reverse:
+        return array[::-1]
     return array
 
-def selection(array,reverse=False):
-    """The selection sort algorithm sorts an array by repeatedly finding the minimum element (considering ascending order)
-       from unsorted part and putting it at the beginning. The algorithm maintains two subarrays in a given array.
 
-        1) The subarray which is already sorted.
-        2) Remaining subarray which is unsorted.
-        In every iteration of selection sort, the minimum element (considering ascending order)
-        from the unsorted subarray is picked and moved to the sorted subarray."""
-
-    for i in range(len(array)): 
-         min_idx = i 
-         for j in range(i+1, len(array)): 
-             if array[min_idx] > array[j]: 
-                 min_idx = j
-         array[i], array[min_idx] = array[min_idx], array[i] #Swapping values
-
-    if reverse==True:
-     return array[::-1]
-
-    return array  
-
-def quick(array,reverse=False):
-    """The algorithm can be broken down into three parts​​:
-       1.Partitioning the array about the pivot.
-       2.Passing the smaller arrays to the recursive calls.
-       3.Joining the sorted arrays that are returned from the recursive call and the pivot.
-       
+def selection(array, reverse=False):
     """
-    start=0
-    end=len(array)-1
-    quick_sort(array,start,end)
+    The selection sort algorithm sorts an array by repeatedly
+    finding the minimum element (considering ascending order)
+    from unsorted part and putting it at the beginning.
+    The algorithm maintains two subarrays in a given array.
+    1) The subarray which is already sorted.
+    2) Remaining subarray which is unsorted.
+    In every iteration of selection sort, the minimum element
+    (considering ascending order)
+    from the unsorted subarray is picked and moved to the sorted subarray.
+    args:
+      :array:(list) -> list to be sorted
+      :reverse:(boolean) -> default = False,
+                            can be True for sort
+                            in reverse order
+    """
 
-    if reverse==True:
-      return array[::-1]
+    for i in range(len(array)):
+        min_idx = i
+        for j in range(i + 1, len(array)):
+            if array[min_idx] > array[j]:
+                min_idx = j
+        array[i], array[min_idx] = array[min_idx], array[i]  # Swapping values
+
+    if reverse:
+        return array[::-1]
 
     return array
+
+
+def quick(array, reverse=False):
+    """The algorithm can be broken down into three parts​​:
+    1.Partitioning the array about the pivot.
+    2.Passing the smaller arrays to the recursive calls.
+    3.Joining the sorted arrays that are returned from
+    the recursive call and the pivot.
+
+    args:
+      :array:(list) -> list to be sorted
+      :reverse:(boolean) -> default = False,
+                            can be True for sort
+                            in reverse order
+
+    """
+    start = 0
+    end = len(array) - 1
+    quick_sort(array, start, end)
+
+    if reverse:
+        return array[::-1]
+
+    return array
+
 
 def quick_sort(array, start, end):
-      if start >= end:
-         return
+    if start >= end:
+        return
 
-      p = partition(array, start, end)
-      quick_sort(array, start, p-1)
-      quick_sort(array, p+1, end)
+    p = partition(array, start, end)
+    quick_sort(array, start, p - 1)
+    quick_sort(array, p + 1, end)
+
 
 def partition(array, start, end):
     pivot = array[start]
@@ -176,11 +212,14 @@ def partition(array, start, end):
     high = end
 
     while True:
-        #If the current value we're looking at is larger than the pivot
-        # it's in the right place (right side of pivot) and we can move left,
+        # If the current value we're looking at is larger than the pivot
+        # it's in the right place (right side of pivot)
+        # and we can move left,
         # to the next element.
-        # We also need to make sure we haven't surpassed the low pointer, since that
-        # indicates we have already moved all the elements to their correct side of the pivot
+        # We also need to make sure we haven't
+        # surpassed the low pointer, since that
+        # indicates we have already moved all the elements
+        # to their correct side of the pivot
         while low <= high and array[high] >= pivot:
             high = high - 1
 
@@ -201,3 +240,34 @@ def partition(array, start, end):
 
     return high
 
+
+def shell_sort(arr, reverse=False):
+
+    """
+    Shell Sort
+    Complexity: O(n^2)
+     args:
+      :array:(list) -> list to be sorted
+      :reverse:(boolean) -> default = False,
+                            can be True for sort
+                            in reverse order
+    """
+    n = len(arr)
+    # Initialize size of the gap
+    gap = n // 2
+
+    while gap > 0:
+        y_index = gap
+        while y_index < len(arr):
+            y = arr[y_index]
+            x_index = y_index - gap
+            while x_index >= 0 and y < arr[x_index]:
+                arr[x_index + gap] = arr[x_index]
+                x_index = x_index - gap
+            arr[x_index + gap] = y
+            y_index = y_index + 1
+        gap = gap // 2
+    if reverse:
+        return arr[::-1]
+    else:
+        return arr
