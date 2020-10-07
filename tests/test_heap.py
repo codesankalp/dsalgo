@@ -17,7 +17,3 @@ class TestHeap(unittest.TestCase):
             self.maxHeap.insert(i)
         self.assertEqual(self.minHeap.root(), min(self.minHeap.to_list()))
         self.assertEqual(self.maxHeap.root(), max(self.maxHeap.to_list()))
-
-
-if __name__ == '__main__':
-    unittest.main()
