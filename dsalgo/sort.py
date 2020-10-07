@@ -1,9 +1,8 @@
 import sys
 
-
 class Sort:
     def __new__(self, array, algo, reverse=False):
-        """
+        '''
         args:
           :array: (list) : a python list
           :algo: (str): sorting algorithm type
@@ -18,7 +17,7 @@ class Sort:
                             if True order is reversed.
         return:
             sorted array
-        """
+        '''
         self.array = array
         self.algo = algo
         self.reverse = reverse
