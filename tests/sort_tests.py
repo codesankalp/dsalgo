@@ -75,12 +75,6 @@ class TestSort(unittest.TestCase):
             self.assertEqual(self.bsort,sortedArray)
             revsortedArray=Sort(self.tarray,"bitonic",True)
             self.assertEqual(self.rsort,revsortedArray)
-      
-          
-
-if __name__=='__main__':
-    unittest.main()
-
 
 
 
