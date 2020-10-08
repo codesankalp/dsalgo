@@ -1,6 +1,5 @@
 import sys
 
-
 class Sort:
     def __new__(self, array, algo, reverse=False):
         """
