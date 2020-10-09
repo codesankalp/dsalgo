@@ -379,6 +379,7 @@ class LinkedList:
 
 		return head
 
+
 	@staticmethod
 	def sorted_merge(list1, list2):
 
@@ -398,3 +399,8 @@ class LinkedList:
 			linked_list.sort_append(value)
 
 		return linked_list
+
+		
+	def __repr__(self):
+		return "LinkedList({})".format((self.to_list()))
+
