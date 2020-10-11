@@ -378,4 +378,108 @@ class LinkedList:
 		# Loop ends
 		
 		return head
+def Circular(head):
+         if head==None:
+          return True
+         
+         # Next of head
+         node = head.next
+         i = 0
+     
+          # This loop would stop in both cases (1) If
+          # Circular (2) Not circular
+         while((node is not None) and (node is not head)):
+           i = i + 1
+           node = node.next
+     
+           return(node==head)
+		 
+def is_Palindrome(s):
+ 
+    rev = ''.join(reversed(s))
+ 
+    # Checking if both string are 
+    # equal or not
+    if (s == rev):
+        return True
+    return False
 
+
+def kth_to_Last(head, k):
+
+	n = 0
+	curr = head
+
+	while curr:
+		curr = curr.next
+		n = n + 1
+
+	# if number of nodes is more than or equal to K
+	if n >= k:
+		# return (n-k+1)th node from the beginning
+		curr = head
+		for i in range(n - k):
+			curr = curr.next
+
+	return curr
+
+def reverse(self, head): 
+  
+    if head is None or head.next is None: 
+        return head 
+
+    rest = self.reverse(head.next) 
+  
+    head.next.next = head 
+    head.next = None
+  
+    return rest 
+
+
+ 
+def rotate_list(self, k): 
+        if k == 0:  
+            return 
+          
+        current = self.head 
+          
+        
+        count = 1 
+        while(count <k and current is not None): 
+            current = current.next
+            count += 1
+     
+        if current is None: 
+            return
+  
+        kthNode = current  
+      
+  
+        while(current.next is not None): 
+            current = current.next
+  
+        current.next = self.head 
+          
+       
+        self.head = kthNode.next
+  
+        kthNode.next = None
+		
+
+def swap_in_pairs(self): 
+        temp = self.head 
+         
+        if temp is None: 
+            return 
+          
+       
+        while(temp is not None and temp.next is not None): 
+ 
+            if(temp.data == temp.next.data): 
+     
+                temp = temp.next.next
+            else: 
+
+                temp.data, temp.next.data = temp.next.data, temp.data 
+   
+                temp = temp.next.next
