@@ -378,7 +378,8 @@ class LinkedList:
 		# Loop ends
 		
 		return head
-def Circular(head):
+	
+def circular(head):
          if head==None:
           return True
          
@@ -393,6 +394,7 @@ def Circular(head):
            node = node.next
      
            return(node==head)
+
 		 
 def is_Palindrome(s):
  
@@ -422,6 +424,7 @@ def kth_to_Last(head, k):
 			curr = curr.next
 
 	return curr
+
 
 def reverse(self, head): 
   
@@ -483,3 +486,4 @@ def swap_in_pairs(self):
                 temp.data, temp.next.data = temp.next.data, temp.data 
    
                 temp = temp.next.next
+	
