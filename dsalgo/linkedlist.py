@@ -319,3 +319,4 @@ class LinkedList:
         p.next = self.head
         self.head = p
         prev.next = None
+       
