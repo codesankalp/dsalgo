@@ -48,10 +48,9 @@ Fixes #<issue-no.>
 * **fix:** A bug fix
 *  **style:** Feature and updates related to styling
 *  **refactor:** Refactoring a specific section of the codebase
-*  **test:** Everything related to testing
 *  **docs:** Everything related to documentation
 *  **chores:** Regular code maintenance/typos or any other similar error
-*  **qa:** Improvement in code readability/ styling etc.
+*  **qa:** Improvement in code readability/ styling etc. Adding test cases etc.
 * Separate the subject from the body with a blank line
 * Your commit message should not contain any whitespace errors
 * Remove unnecessary punctuation marks
