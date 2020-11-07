@@ -158,9 +158,9 @@ class TestLinkedList(unittest.TestCase):
         head=head.next
         self.assertEqual(head.value,40)
 
-    def test_merge_linked_list(self):
+    def test_sorted_merge(self):
         new_list=LinkedList()
-        final_list=self.linked_list.merge_linked_list(new_list)
+        final_list=LinkedList.sorted_merge(self.linked_list,new_list)
         temp1=self.linked_list.head
         temp2=final_list.head
         while temp1 is not None:
@@ -173,7 +173,7 @@ class TestLinkedList(unittest.TestCase):
         new_list.append(25)
         new_list.append(35)
         new_list.append(45)
-        final_list=self.linked_list.merge_linked_list(new_list)
+        final_list=LinkedList.sorted_merge(self.linked_list,new_list)
         temp1=final_list.head
         i=1
         while i is not 10:

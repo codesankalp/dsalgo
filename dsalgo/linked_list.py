@@ -379,29 +379,30 @@ class LinkedList:
 
 		return head
 
-	def merge_linked_list(self, list2):
+	def sorted_merge(self, list):
 
 		"""
 		:param: head - head of first linked list
 		:param: list2 - head of second linked list
-		return - return a new merged linked list
+		return - return a new sorted merged list
 		"""
 
 		sorted_array = []
 		array = self.to_list()
-
 		linked_list = LinkedList()
 		for value in array:
 			linked_list.sort_append(value)
-
-		array = list2.to_list()
+		array = list.to_list()
 		for value in array:
 			linked_list.sort_append(value)
 
 		return linked_list
 
+	def __repr__(self):
+		return "LinkedList({})".format((self.to_list()))
 
-def merge_linked_list(list1,list2):
+
+def sorted_merge(list1,list2):
 	"""
 	:param: head - head of first linked list
 	:param: list2 - head of second linked list
