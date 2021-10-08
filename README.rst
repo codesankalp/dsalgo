@@ -35,11 +35,36 @@ To cover different available data structures and algorithms for generic cases.
 
 ----------------------------------
 
-**CURRENT FEATURES**
+** ALGORITHMS AVAILABLE**
 ====================
 
-* linked list
+* Linked List algorithms
+    * Insert
+    * Remove
+    * Pop
+    * Append
+    * Prepend
+    * Pop
+    * Reverse
+    * Size
+    * IsCircular
+    * Swap Nodes
+    * Sort Append
+    * Skip i Delete j
+  
 * sorting algorithms
+    * Bubble Sort
+    * Merge Sort
+    * Bubble Recursion Sort
+    * Selection Sort
+    * Quick Sort
+
+* Searching algorithms
+    * Binary Search
+    * Linear Search
+    * Jump Search
+    * Interpolation Search
+    * Fibonacci Search
 
 ----------------------------------
 
