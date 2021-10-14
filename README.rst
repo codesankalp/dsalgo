@@ -35,8 +35,8 @@ To cover different available data structures and algorithms for generic cases.
 
 ----------------------------------
 
-** ALGORITHMS AVAILABLE**
-==========================
+**ALGORITHMS AVAILABLE**
+========================
 
 * `Linked List algorithms <https://github.com/codesankalp/dsalgo/blob/master/dsalgo/linked_list.py>`_
     * Insert
