@@ -74,7 +74,6 @@ To cover different available data structures and algorithms for generic cases.
 * `setting up`_
 * `contribution`_
 * `contribution guidelines`_
-* `submission template`_
 
 -----------------------------------
 
