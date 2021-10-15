@@ -35,11 +35,36 @@ To cover different available data structures and algorithms for generic cases.
 
 ----------------------------------
 
-**CURRENT FEATURES**
-====================
+**ALGORITHMS AVAILABLE**
+========================
 
-* linked list
-* sorting algorithms
+* `Linked List algorithms <https://github.com/codesankalp/dsalgo/blob/master/dsalgo/linked_list.py>`_
+    * Insert
+    * Remove
+    * Pop
+    * Append
+    * Prepend
+    * Pop
+    * Reverse
+    * Size
+    * IsCircular
+    * Swap Nodes
+    * Sort Append
+    * Skip i Delete j
+  
+* `sorting algorithms <https://github.com/codesankalp/dsalgo/blob/master/dsalgo/sort.py>`_
+    * Bubble Sort
+    * Merge Sort
+    * Bubble Recursion Sort
+    * Selection Sort
+    * Quick Sort
+
+* `Searching algorithms <https://github.com/codesankalp/dsalgo/blob/master/dsalgo/search.py>`_
+    * Binary Search
+    * Linear Search
+    * Jump Search
+    * Interpolation Search
+    * Fibonacci Search
 
 ----------------------------------
 
@@ -49,7 +74,6 @@ To cover different available data structures and algorithms for generic cases.
 * `setting up`_
 * `contribution`_
 * `contribution guidelines`_
-* `submission template`_
 
 -----------------------------------
 
