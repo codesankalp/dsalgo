@@ -16,7 +16,7 @@ class Search:
         self.arr = arr
         self.number = number
 
-    def binary_search(self):
+    def binary_search(self,_low = 0,_high = 0):
 
         """
             Binary Search:
@@ -36,19 +36,25 @@ class Search:
         """
         arr = sorted(self.arr)
         x = self.number
-        low = 0
-        high = len(arr) - 1
+        
+        low = _low
+
+        if _high == 0:
+            high = len(arr) - 1
+        else:
+            high = _high
+
         mid = 0
 
         while low <= high:
 
-            mid = (high + low) // 2
+            mid = int((high + low) // 2)
+            print(mid)
             if arr[mid] < x:
                 low = mid + 1
 
             elif arr[mid] > x:
                 high = mid - 1
-
             else:
                 return mid
 
@@ -88,7 +94,7 @@ class Search:
 
             params : array --> arr, value --> x
 
-            returns : found --> int index, not found --> -1
+            returns : found --> int index , not found --> -1
 
         """
         arr = sorted(self.arr)
@@ -221,3 +227,56 @@ class Search:
 
         # element not found. return -1
         return -1
+
+    def exponential_search(self):
+        """
+            Exponential Search
+
+                Like Binary Search, Exponential Search is a searching algorithm for
+                sorted arrays. The basic idea is to check elements in exponent fashion
+                rather than linear fashion by exponenting index of itteration by itself.
+
+            params : array --> arr, value --> x
+
+            returns : found --> int index , not found --> -1
+
+        """
+        # Sort Array
+        arr = sorted(self.arr)
+
+        # Returns 0 if required number lies on 0th index
+        if(arr[0] == self.number):
+            return 0
+        
+        # Exponent Traversal in Array
+        i = 1
+        while(i < len(arr) and arr[i]<=self.number):
+            i = i*2
+        
+        # Using Binary Search on Result obtained from exponentiation
+        index = self.binary_search(_low=i/2,_high=min(i,len(arr)-1))
+        return index
+        
+    def recursive_search(self,l=0,r=0,string = True):
+        """
+            Recursive Search
+
+                Unlike searches that require pre sorted arrays, recursive search follows
+                linear two pointer recursion approach on unsorted arrays.
+
+            params : array --> arr, value --> x
+
+            returns : found --> int index , not found --> -1
+
+        """
+        # Base Conditions
+        if(r==0):
+            r=len(self.arr)-1
+        if(r<l):
+            return -1
+        if(self.arr[l] == self.number):
+            return l
+        if(self.arr[r] == self.number):
+            return r
+        #Recursive Calls
+        self.recursive_search(l=l+1,r=r-1)

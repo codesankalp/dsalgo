@@ -42,3 +42,4 @@ class TestSort(unittest.TestCase):
          self.assertEqual(self.bySort,sortedArray)
          revsortedArray=Sort(self.testArray,"merge",True)
          self.assertEqual(self.revBySort,revsortedArray)
+     
