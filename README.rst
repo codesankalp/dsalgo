@@ -65,6 +65,8 @@ To cover different available data structures and algorithms for generic cases.
     * Jump Search
     * Interpolation Search
     * Fibonacci Search
+    * Exponential Search
+    * Recursive Array Search
 
 ----------------------------------
 
