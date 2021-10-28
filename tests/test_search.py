@@ -36,3 +36,4 @@ class Test_seacrch(unittest.TestCase):
     def test_recursive_search(self):
         self.answer = self.test_array.index(self.to_search)
         self.assertEqual(self.answer, self.search.recursive_search())
+        

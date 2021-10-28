@@ -48,8 +48,7 @@ class Search:
 
         while low <= high:
 
-            mid = int((high + low) // 2)
-            print(mid)
+            mid = (high + low) // 2
             if arr[mid] < x:
                 low = mid + 1
 
@@ -94,7 +93,7 @@ class Search:
 
             params : array --> arr, value --> x
 
-            returns : found --> int index , not found --> -1
+            returns : found --> int index, not found --> -1
 
         """
         arr = sorted(self.arr)
@@ -254,7 +253,7 @@ class Search:
             i = i*2
         
         # Using Binary Search on Result obtained from exponentiation
-        index = self.binary_search(_low=i/2,_high=min(i,len(arr)-1))
+        index = self.binary_search(_low=i//2,_high=min(i,len(arr)-1))
         return index
         
     def recursive_search(self,l=0,r=0,string = True):
